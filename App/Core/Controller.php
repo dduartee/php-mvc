@@ -2,10 +2,10 @@
 
 namespace App\Core;
 
-class Controller
+abstract class Controller
 {
     /**
-     * Exibe view para o usuario
+     * Renderiza view para o usuario
      *
      * @param string $view
      * @param array $data
@@ -16,6 +16,13 @@ class Controller
         require_once __DIR__.'/../Views/'.$view.'.php';
     }
 
+    /**
+     * Renderiza erro para o usuario
+     *
+     * @param integer $code
+     * @param string $text
+     * @return void
+     */
     public function renderError(int $code = null, string $text = null) 
     {
         $code = isset($code) ? $code : http_response_code();

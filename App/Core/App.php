@@ -4,7 +4,7 @@ namespace App\Core;
 
 class App
 {
-
+    
     private $controller = 'Home';
     private $method = 'index';
     private $params = [];
@@ -15,15 +15,13 @@ class App
      */
     public function __construct()
     {
-        $uriGET = filter_input(INPUT_GET, 'uri') ? $_GET['uri'] : "";
-        $URI = $this->parseURI($uriGET);
+        $URI = $this->parseURI(filter_input(INPUT_GET, 'uri') ? $_GET['uri'] : "");
 
         $this->getController($URI);
         $this->getMethod($URI);
         $this->getParams($URI);
 
         call_user_func_array([$this->controller, $this->method], $this->params);
-
     }
 
     /**
@@ -47,8 +45,10 @@ class App
     {
         if(!empty($uri[0]) && isset($uri[0]))
         {
-            $controller = ucfirst($uri[0]);
+            $controller = ucfirst($uri[0]); // deixa a primeira letra maiuscula
+
             $controllerFile = $this->controllerFolder.$controller.'.php';
+
             if (file_exists($controllerFile)) {
                 $this->controller = $controller;
             } else {
@@ -76,7 +76,7 @@ class App
                 return 1;
             } else {
                 http_response_code(404);
-                $this->method = '404';
+                $this->method = 'index';
             }
         }
         return 0;

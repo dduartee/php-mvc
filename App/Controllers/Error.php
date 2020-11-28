@@ -2,8 +2,11 @@
 
 namespace App\Controllers;
 
-class Error {
-    public function index() {
-        
+use App\Core\Controller;
+
+class Error extends Controller {
+    public function index() 
+    {
+        $this->renderError(404, "Página não encontrada");
     }
 }

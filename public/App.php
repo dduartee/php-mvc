@@ -6,6 +6,7 @@
  */
 
 require __DIR__.'/../autoload.php';
+
 use App\Core\App;
 $app = new App();
 
