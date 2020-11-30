@@ -1,3 +1,3 @@
-# php-mvc-framework
-Projeto de framework básico com php, com arquitetura de mvc
+# php-mvc
+Projeto de loja ecommerce com arquitetura mvc
 
