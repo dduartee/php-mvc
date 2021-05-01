@@ -1,10 +1,18 @@
 <?php
 
-namespace App\Products\Models;
+namespace App\Models;
 
 use App\Core\Database;
-use IProducts;
 use PDO;
+
+interface IProducts
+{
+    public function getAll();
+    public function getByID(int $id);
+    public function getByURI(string $uri);
+    public function getStockByID(int $id, int $quantity);
+    public function getStockByURI(string $uri, int $quantity);
+}
 
 class Products implements IProducts
 {

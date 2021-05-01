@@ -6,7 +6,7 @@ use PDO;
 
 class Database extends PDO
 {
-    private String $DB_NAME = 'forward_db';
+    private String $DB_NAME = 'framework_db';
     private string $DB_USER = 'root';
     private string $DB_PASS = '';
     private string $DB_HOST = 'localhost';
