@@ -7,7 +7,7 @@ use App\Models\Products;
 
 class Shop extends Controller
 {
-    public function index(string $specific) 
+    public function index() 
     {
         $products = new Products;
         $this->render('Shop/index', ['produtos' => $products->getAll()]);

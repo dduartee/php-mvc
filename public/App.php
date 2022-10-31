@@ -5,9 +5,8 @@
  * imports, configuração de paginas
  */
 
-require __DIR__.'/../autoload.php';
 
-use App\Core\App;
-$app = new App();
+require __DIR__.'/../autoload.php';
+$app = new \App\Core\App();
 
 ?>

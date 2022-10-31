@@ -1,6 +1,7 @@
 <?php
 function autoLoader($class) {
-  $file = __DIR__.'/'.$class .".php";
+  $class = str_replace('\\', '/', $class);
+  $file = __DIR__ . '/' . $class . '.php';
   if(file_exists($file)) {
     include_once($file);
     return 1;

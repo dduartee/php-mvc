@@ -8,15 +8,14 @@ class App
     private $controller = 'Home';
     private $method = 'index';
     private $params = [];
-    private $controllerFolder = __DIR__.'/../Controllers/';
+    private $controllerFolder = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR;
 
     /**
      * chama o controller com o metodo e os parametros de acordo com a uri
      */
     public function __construct()
     {
-        $URI = $this->parseURI(filter_input(INPUT_GET, 'uri') ? $_GET['uri'] : "");
-
+        $URI = $this->parseURI(filter_input(INPUT_SERVER, 'REQUEST_URI') ? $_SERVER['REQUEST_URI'] : "");
         $this->getController($URI);
         $this->getMethod($URI);
         $this->getParams($URI);
